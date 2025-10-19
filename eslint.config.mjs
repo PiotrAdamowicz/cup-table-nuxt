@@ -15,7 +15,7 @@ export default withNuxt(
         semi: true,
         quotes: "double",
       },
-      ignores: [".pnpm-store/**", "**/migrations/*", "nuxt.config.ts"],
+      ignores: [".pnpm-store/**", "**/migrations/*", "nuxt.config.ts", "**/env.ts"],
     },
     {
       rules: {
