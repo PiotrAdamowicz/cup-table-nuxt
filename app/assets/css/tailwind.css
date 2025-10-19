@@ -46,7 +46,7 @@
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.147 0.004 49.25);
-  --card: oklch(1 0 0);
+  --card: oklch(1 0 30);
   --card-foreground: oklch(0.147 0.004 49.25);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.147 0.004 49.25);
@@ -120,4 +120,17 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+html,
+body {
+  @apply min-h-full;
+}
+
+html {
+  @apply bg-gradient-to-b from-gray-50 to-gray-100;
+}
+
+.input {
+  @apply bg-input font-semibold px-2 py-1 rounded placeholder-muted-foreground;
 }
