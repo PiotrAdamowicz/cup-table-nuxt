@@ -30,6 +30,7 @@ export default withNuxt(
             },
           },
         ],
+        "style/eol-last": "off",
         "ts/no-redeclare": "off",
         "ts/consistent-type-definitions": ["error", "type"],
         "no-console": ["warn"],
