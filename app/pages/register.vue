@@ -10,7 +10,7 @@ const fullName = ref("");
 const { data: session } = await authClient.useSession(useFetch);
 
 const authStore = useAuthStore();
-console.log(password.value);
+
 function submit() {
   if (!username.value || !password.value)
     return;
