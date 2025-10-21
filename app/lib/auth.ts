@@ -17,10 +17,4 @@ export const auth = betterAuth({
   advanced: {
     disableCSRFCheck: env.DEV_ENV === "development",
   },
-  // socialProviders: {
-  //   github: {
-  //     clientId: env.CLIENT_ID_GIT_HUB!,
-  //     clientSecret: env.CLIENT_SECRET_GIT_HUB,
-  //   },
-  // },
 });
