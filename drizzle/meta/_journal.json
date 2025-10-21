@@ -5,29 +5,8 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1760874117183,
-      "tag": "0000_demonic_sally_floyd",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "7",
-      "when": 1760896742581,
-      "tag": "0001_wandering_namor",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "7",
-      "when": 1760897501438,
-      "tag": "0002_tearful_warbound",
-      "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "7",
-      "when": 1760897712415,
-      "tag": "0003_first_obadiah_stane",
+      "when": 1761061081076,
+      "tag": "0000_omniscient_tag",
       "breakpoints": true
     }
   ]

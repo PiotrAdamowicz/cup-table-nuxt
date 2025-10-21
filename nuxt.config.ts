@@ -5,7 +5,12 @@ import "./app/lib/env";
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
-  modules: ["@nuxtjs/tailwindcss", "shadcn-nuxt", "@nuxt/eslint"],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "shadcn-nuxt",
+    "@nuxt/eslint",
+    "@pinia/nuxt",
+  ],
   eslint: {
     config: {
       standalone: false,
