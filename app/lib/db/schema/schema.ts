@@ -1,20 +1,21 @@
-import { pgTable, text, timestamp, uuid } from "drizzle-orm/pg-core";
+import { boolean, pgTable, text, timestamp, uuid } from "drizzle-orm/pg-core";
 
 export const users = pgTable("users", {
-  id: uuid("id").defaultRandom().primaryKey(),
+  id: text("id").primaryKey(),
   name: text("name").notNull(),
   email: text("email").notNull().unique(),
-  emailVerified: timestamp("email_verified", { mode: "date" }),
-  passwordHash: text("password_hash").notNull(),
+  emailVerified: boolean("emailVerified").default(false),
+  password: text("password"),
   role: text("role").notNull().default("user"),
-  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at", { mode: "string" }).defaultNow().notNull(),
+  createdAt: timestamp("created_at", { mode: "string" }).defaultNow().notNull(),
 });
 // ----------------------
 // Account table (for OAuth, optional)
 // ----------------------
 export const account = pgTable("account", {
-  id: uuid("id").defaultRandom().primaryKey(),
-  userId: uuid("user_id").notNull(),
+  accountId: text("accountId").primaryKey(),
+  userId: text("user_id").notNull(),
   provider: text("provider").notNull(),
   providerAccountId: text("provider_account_id").notNull(),
   accessToken: text("access_token"),
@@ -26,8 +27,8 @@ export const account = pgTable("account", {
 // Session table
 // ----------------------
 export const session = pgTable("session", {
-  id: uuid("id").defaultRandom().primaryKey(),
-  userId: uuid("user_id").notNull(),
+  id: text("id").primaryKey(),
+  userId: text("user_id").notNull(),
   expires: timestamp("expires").notNull(),
   sessionToken: text("session_token").notNull().unique(),
   accessToken: text("access_token").notNull().unique(),
@@ -37,7 +38,7 @@ export const session = pgTable("session", {
 // Verification token table (email verification, password reset, etc.)
 // ----------------------
 export const verificationToken = pgTable("verification_token", {
-  id: uuid("id").defaultRandom().primaryKey(),
+  id: text("id").primaryKey(),
   identifier: text("identifier").notNull(),
   token: text("token").notNull(),
   expires: timestamp("expires").notNull(),

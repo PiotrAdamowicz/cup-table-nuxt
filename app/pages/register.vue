@@ -1,21 +1,23 @@
 <script lang="ts" setup>
 import Button from "~/components/ui/button/Button.vue";
 import { authClient } from "~/lib/auth-client";
+import { useAuthStore } from "~/stores/auth";
 
 const username = ref("");
 const password = ref("");
-
-const authStore = useAuthStore();
+const fullName = ref("");
 
 const { data: session } = await authClient.useSession(useFetch);
 
+const authStore = useAuthStore();
+console.log(password.value);
 function submit() {
   if (!username.value || !password.value)
     return;
-  authStore.signIn({
-    email: username.value,
-    password: password.value,
-  });
+
+  authStore.register(
+    { name: fullName.value, email: username.value, password: password.value },
+  );
 }
 </script>
 
@@ -23,6 +25,15 @@ function submit() {
   <section class="max-w-1/2 mx-auto bg-transparent">
     <div>Login Form</div>
     <form class="flex flex-col gap-4" @submit.prevent="submit">
+      <label for="username">Full Name:</label>
+      <input
+        id="fullName"
+        v-model="fullName"
+        type="text"
+        placeholder="First and last name"
+        name="fullName"
+        class="input"
+      >
       <label for="username">Username:</label>
       <input
         id="username"
